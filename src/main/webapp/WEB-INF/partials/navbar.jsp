@@ -14,7 +14,6 @@
             <p class="navbar-text">Creepin' it real since 2017</p>
         </div>
 
-
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 <form class="navbar-form navbar-left">
@@ -46,4 +45,3 @@
     <%--</div><!-- /.navbar-collapse -->--%>
     <%--</div><!-- /.container-fluid -->--%>
 </nav>
-
