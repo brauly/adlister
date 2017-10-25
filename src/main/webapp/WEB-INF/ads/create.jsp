@@ -1,44 +1,24 @@
-package com.codeup.adlister.controllers;
-
-import com.codeup.adlister.dao.DaoFactory;
-import com.codeup.adlister.models.User;
-import com.codeup.adlister.util.Password;
-
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
-
-@WebServlet(name = "controllers.LoginServlet", urlPatterns = "/login")
-public class LoginServlet extends HttpServlet {
-protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-if (request.getSession().getAttribute("user") != null) {
-response.sendRedirect("/profile");
-return;
-}
-request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
-}
-
-protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-String username = request.getParameter("username");
-String password = request.getParameter("password");
-
-User user = DaoFactory.getUsersDao().findByUsername(username);
-
-if (user == null) {
-response.sendRedirect("/login");
-return;
-}
-
-boolean validAttempt = Password.check(password, user.getPassword());
-
-if (validAttempt) {
-request.getSession().setAttribute("user", user);
-response.sendRedirect("/profile");
-} else {
-response.sendRedirect("/login");
-}
-}
-}
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+    <jsp:include page="/WEB-INF/partials/head.jsp">
+        <jsp:param name="title" value="Create a new Ad" />
+    </jsp:include>
+</head>
+<body>
+<div class="container">
+    <h1>Create a new Ad</h1>
+    <form action="/ads/create" method="post">
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input id="title" name="title" class="form-control" type="text">
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea id="description" name="description" class="form-control" type="text"></textarea>
+        </div>
+        <input type="submit" class="btn btn-block btn-primary">
+    </form>
+</div>
+</body>
+</html>
