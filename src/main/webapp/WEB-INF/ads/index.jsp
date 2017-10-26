@@ -10,7 +10,7 @@
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 
 <div class="container">
-    <h1 class="text-center">Advertisements</h1>
+    <h1 class="text-center">Spooklist Advertisements</h1>
 
     <c:forEach var="ad" items="${ads}">
     <a href="/ads/show?id=${ad.id}">

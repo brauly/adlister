@@ -1,5 +1,6 @@
 body {
     padding-top: 70px;
+    background-image: url("/img/spiderweb.jpg");
 }
 
 body, a:hover {
@@ -20,6 +21,8 @@ a:active {
     text-decoration: none;
 }
 
+
+
 .navbar-brand > img {
     display: inline;
     height: 30px;
@@ -33,5 +36,9 @@ a.navbar-brand {
 
 img.media-object {
     padding: 10px;
+}
+
+.panel, .navbar {
+    opacity: 0.9;
 }
 
