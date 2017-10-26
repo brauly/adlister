@@ -71,7 +71,7 @@ public class MySQLAdsDao implements Ads {
 
     @Override
     public List<Ad> search(String searchTerm) {
-        String query = "SELECT * FROM ads WHERE title LIKE ? OR description Like ?";
+        String query = "SELECT * FROM ads WHERE title LIKE ? OR description LIKE ?";
         try {
             PreparedStatement stmt = connection.prepareStatement(query);
             stmt.setString(1, "%" + searchTerm + "%");
@@ -95,4 +95,22 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
+    @Override
+    public Ad findById(Long id) {
+        String query = "SELECT * FROM ads WHERE id = ?";
+        PreparedStatement stmt;
+        try {
+            stmt = connection.prepareStatement(query);
+            stmt.setString(1, "id");
+            ResultSet rs = stmt.executeQuery();
+            rs.next();
+            return extractAd(rs);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }
+
+
