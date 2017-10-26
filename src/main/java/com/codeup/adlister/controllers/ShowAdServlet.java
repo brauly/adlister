@@ -15,7 +15,9 @@ import java.util.List;
 public class ShowAdServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Long id = Long.parseLong(request.getParameter("id"));
+
         Ad ad = DaoFactory.getAdsDao().findById(id);
+
         request.setAttribute("ad", ad);
         request.getRequestDispatcher("/WEB-INF/ads/ad.jsp").forward(request, response);
 //        Finding an ad by the id, setting ad into request, returning view with request attributes(ads)

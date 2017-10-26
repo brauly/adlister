@@ -1,6 +1,7 @@
 package com.codeup.adlister.dao;
 
 import com.codeup.adlister.models.Ad;
+import com.codeup.adlister.models.User;
 import com.mysql.cj.jdbc.Driver;
 
 import java.sql.*;
@@ -54,10 +55,23 @@ public class MySQLAdsDao implements Ads {
 
     private Ad extractAd(ResultSet rs) throws SQLException {
         return new Ad(
+            rs.getLong("id"),
+            rs.getLong("user_id"),
+            rs.getString("title"),
+            rs.getString("description")
+
+//            new User(rs.getLong("id"), rs.getString("firstname"), rs.getString("lastname"), rs.getString("username"), rs.getString("email"), rs.getString("password"))
+        );
+    }
+
+    private Ad extractAds(ResultSet rs) throws SQLException {
+        return new Ad(
                 rs.getLong("id"),
                 rs.getLong("user_id"),
                 rs.getString("title"),
-                rs.getString("description")
+                rs.getString("description"),
+
+                new User(rs.getLong("id"), rs.getString("firstname"), rs.getString("lastname"), rs.getString("username"), rs.getString("email"), rs.getString("password"))
         );
     }
 
@@ -104,7 +118,7 @@ public class MySQLAdsDao implements Ads {
             stmt.setLong(1, id);
             ResultSet rs = stmt.executeQuery();
             rs.next();
-            return extractAd(rs);
+            return extractAds(rs);
 
         } catch (SQLException e) {
             e.printStackTrace();
