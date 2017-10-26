@@ -41,7 +41,24 @@ img.media-object {
     background-color: #FA8F36;
 }
 
+.navbar-default, .navbar-brand, .navbar-text, .navbar-nav > li > a {
+    color: black !important;
+}
+
 .list-group-item {
     padding: 10px 30px;
 }
+
+.list-group-item.active, .list-group-item.active:focus, .list-group-item.active:hover{
+    background-color: #FA8F36;
+    border-color: #FA8F36;
+}
+
+.btn, .btn:hover {
+    background-color: black;
+    color: white;
+    border: none;
+}
+
+
 
