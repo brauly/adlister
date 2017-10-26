@@ -22,7 +22,7 @@
             </div>
             <div class="media">
                 <div class="media-left">
-                    <img class="media-object" src="http://lorempixel.com/100/100/" alt="random-image">
+                    <img class="media-object" src="http://via.placeholder.com/100x100" alt="random-image">
                 </div>
                 <div class="media-body">
                     <div class="panel-body">
