@@ -2,6 +2,24 @@ body {
     padding-top: 70px;
 }
 
+body, a:hover {
+    cursor: url(http://cur.cursors-4u.net/food/foo-5/foo439.cur),
+    progress !important;
+    text-decoration: none;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:active {
+    text-decoration: none;
+}
+
 .navbar-brand > img {
     display: inline;
     height: 30px;
@@ -12,3 +30,8 @@ a.navbar-brand {
     /*padding: 0px;*/
     /*margin: 10px;*/
 }
+
+img.media-object {
+    padding: 10px;
+}
+

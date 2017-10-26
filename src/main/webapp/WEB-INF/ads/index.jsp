@@ -13,18 +13,25 @@
     <h1 class="text-center">Advertisements</h1>
 
     <c:forEach var="ad" items="${ads}">
-
-        <div class="media">
-            <a href="/ads/show?id=${ad.id}">
+    <a href="/ads/show?id=${ad.id}">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h2 class="media-heading panel-title">
+                    <c:out value="${ad.title}" />
+                </h2>
+            </div>
+            <div class="media">
                 <div class="media-left">
                     <img class="media-object" src="http://lorempixel.com/100/100/" alt="random-image">
                 </div>
                 <div class="media-body">
-                    <h2 class="media-heading"><c:out value="${ad.title}" /></h2>
+                    <div class="panel-body">
                     <p><c:out value="${ad.description}" /></p>
+                    </div>
                 </div>
-            </a>
+            </div>
         </div>
+    </a>
     </c:forEach>
 </div>
 
