@@ -11,4 +11,6 @@ public interface Ads {
     Long insert(Ad ad);
 
     List<Ad> search(String searchTerm);
+
+    Ad findById(Long id);
 }

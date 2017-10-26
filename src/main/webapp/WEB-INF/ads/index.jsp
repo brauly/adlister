@@ -15,7 +15,7 @@
     <c:forEach var="ad" items="${ads}">
 
         <div class="media">
-            <a href="#">
+            <a href="/ads/show?id=${ad.id}">
                 <div class="media-left">
                     <img class="media-object" src="http://lorempixel.com/100/100/" alt="random-image">
                 </div>
