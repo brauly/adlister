@@ -64,6 +64,7 @@ public class Ad {
     public String getFirstname() {
         return user.getFirstname();
     }
+
     public String getUsername() {
         return user.getUsername();
     }

@@ -18,9 +18,9 @@
         </div>
         <div class="panel-body">
             <img class="media-object" src="http://lorempixel.com/100/100/" alt="random-image">
-            <%--<p><c:out value="${ad.description}" /></p>--%>
-            <%--<p><c:out value="${ad.getFirstame()}" /></p>--%>
-            <%--<p><c:out value="${ad.getUsername()}" /></p>--%>
+            <p><c:out value="${ad.description}" /></p>
+            <p><c:out value="${ad.getFirstname()}" /></p>
+            <p><c:out value="${ad.getUsername()}" /></p>
         </div>
     </div>
 

@@ -21,24 +21,27 @@ a:active {
     text-decoration: none;
 }
 
-
-
 .navbar-brand > img {
     display: inline;
     height: 30px;
     width: 30px;
-}
-
-a.navbar-brand {
-    /*padding: 0px;*/
-    /*margin: 10px;*/
+    /*opacity: 1;*/
 }
 
 img.media-object {
     padding: 10px;
 }
 
-.panel, .navbar {
+.panel, .navbar, .list-group {
     opacity: 0.9;
+    color: black;
+}
+
+.panel-default>.panel-heading, .navbar-default {
+    background-color: #FA8F36;
+}
+
+.list-group-item {
+    padding: 10px 30px;
 }
 
