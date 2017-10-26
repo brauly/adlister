@@ -97,7 +97,7 @@ public class MySQLAdsDao implements Ads {
 
     @Override
     public Ad findById(Long id) {
-        String query = "SELECT * FROM ads WHERE id = ?";
+        String query = "SELECT * FROM ads JOIN users ON ads.user_id = users.id WHERE ads.id = ?";
         PreparedStatement stmt;
         try {
             stmt = connection.prepareStatement(query);
