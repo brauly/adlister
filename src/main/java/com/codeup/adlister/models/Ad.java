@@ -6,6 +6,7 @@ public class Ad {
     private String title;
     private String description;
     private User user;
+    //made the user model a property of the ad class
 
 
     public Ad(long id, long userId, String title, String description) {
