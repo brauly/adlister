@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.util.HashMap;
 
 
-@WebServlet(name = "UpdateServlet", urlPatterns = "ads/update")
+@WebServlet(name = "UpdateServlet", urlPatterns = "/ads/update")
 public class UpdateServlet extends HttpServlet {
         protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
             User user = (User) request.getSession().getAttribute("user");
@@ -51,7 +51,7 @@ public class UpdateServlet extends HttpServlet {
             ad.setDescription(description);
 
             DaoFactory.getAdsDao().update(ad);
-            response.sendRedirect("/index");
+            response.sendRedirect("/ads");
         } else {
             request.setAttribute("errors", errors);
             request.setAttribute("ad", ad);
