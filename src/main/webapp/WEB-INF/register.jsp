@@ -33,9 +33,7 @@
             <label for="username">Username</label>
             <input id="username" name="username" class="form-control" value="${username}">
             <c:if test = "${error != null}">
-                <p class="error">
-                        ${error}
-                </p>
+                <p class="error">${error}</p>
             </c:if>
             <c:if test = "${Errors.containsKey('username')}">
                 <p class="error"> ${Errors.get('username')}</p>
