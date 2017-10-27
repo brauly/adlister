@@ -17,7 +17,7 @@
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h2 class="media-heading panel-title">
-                <c:out value="${ad.title}" />
+                    <c:out value="${ad.title} - ${ad.getUsername()}"/></p>
                 </h2>
                 <form action="/ads/delete" method="post">
                     <div class="form-group">
@@ -29,7 +29,16 @@
                             </span>
                     </div>
                 </form>
-                        <%--<span class="glyphicon glyphicon-pencil"></span>--%>
+                <form action="/ads/update" method="post">
+                    <div class="form-group">
+                        <input type="hidden" name="id" class="form-control" value="${ad.id}">
+                        <span class="pull-right">
+                                <button id="update" class="btn btn-default">
+                                    <span class="glyphicon glyphicon-pencil"></span>
+                                </button>
+                            </span>
+                    </div>
+                </form>
 
             </div>
             <div class="media">
@@ -38,7 +47,8 @@
                 </div>
                 <div class="media-body">
                     <div class="panel-body">
-                    <p><c:out value="${ad.description}" /></p>
+                        <p><c:out value="${ad.description}"/></p>
+                        <p> - <c:out value="${ad.getFirstname()}"/></p>
                     </div>
                 </div>
             </div>
@@ -46,6 +56,9 @@
     </a>
     </c:forEach>
 </div>
+
+<jsp:include page="/WEB-INF/partials/scripts.jsp" />
+
 
 </body>
 </html>

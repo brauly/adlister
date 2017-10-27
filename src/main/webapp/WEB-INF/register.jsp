@@ -37,5 +37,8 @@
         <input type="submit" class="btn btn-primary btn-block">
     </form>
 </div>
+
+<jsp:include page="/WEB-INF/partials/scripts.jsp" />
+
 </body>
 </html>

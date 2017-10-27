@@ -9,7 +9,25 @@
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 <div class="container">
-    <h1 class="text-center">Welcome to Spooklist!</h1>
+
+    <div class="jumbotron text-center">
+        <h1>Welcome to Spooklist!</h1>
+        <p>A community of exchange for all things Halloween!</p>
+
+
+
+        <%--<c:if test="${(sessionScope.user == null)}">--%>
+        <%--<p><a class="btn btn-primary btn-lg" href="/register" role="button">Register now!</a></p>--%>
+        <%--<p><a class="btn btn-primary btn-lg" href="/login" role="button">Log in!</a></p>--%>
+        <%--</c:if>--%>
+
+        <c:if test="${(sessionScope.user != null)}">
+        </c:if>
+        <img id="ghost-gif" src="img/ghost.gif" alt="ghost">
+    </div>
 </div>
+
+<jsp:include page="/WEB-INF/partials/scripts.jsp" />
+
 </body>
 </html>
