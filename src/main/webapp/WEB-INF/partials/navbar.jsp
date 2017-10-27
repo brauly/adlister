@@ -9,29 +9,32 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/ads">
+            <a class="navbar-brand" href="/index.jsp">
                 <img src="/img/ghost.png" alt="ghost">
                     Spooklist
             </a>
             <p class="navbar-text">
-                Creepin' it real since 2017
+                Creepin' it real since this past Thursday
             </p>
         </div>
 
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <div class="collapse navbar-collapse text-center" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 <form class="navbar-form navbar-left" action="/search">
                     <div class="form-group">
                         <input type="text" name="search" class="form-control" placeholder="Search">
                     </div>
-                    <button type="submit" class="btn btn-default">Submit</button>
+                    <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
                 </form>
+                <li class="text-center"><a href="/ads">View all ads</a></li>
 
                 <%-- Logged in --%>
                 <c:if test="${(sessionScope.user != null)}">
                 <li role="presentation" class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                        <span class="glyphicon glyphicon-user"></span> <span class="caret"></span>
+                        <span>Hi, <c:out value="${user.getFirstname()}"/>!</span>
+                        <span class="glyphicon glyphicon-user"></span>
+                        <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
                         <li class="text-center"><a href="/profile">View profile</a></li>

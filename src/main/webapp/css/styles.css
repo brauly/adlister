@@ -27,7 +27,10 @@ a:active {
     display: inline;
     height: 30px;
     width: 30px;
-    /*opacity: 1;*/
+}
+
+.navbar-default .navbar-brand {
+    padding: 11px;
 }
 
 img.media-object {
@@ -62,4 +65,20 @@ img.media-object {
     border: none;
 }
 
+#delete, #update btn {
+    margin: 10px;
+}
 
+.row {
+    margin-right: 15px;
+    margin-left: 15px;
+}
+
+.jumbotron {
+    opacity: 0.9;
+}
+
+#ghost-gif {
+    display: block;
+    margin: 0 auto;
+}

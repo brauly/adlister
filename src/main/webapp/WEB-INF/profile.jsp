@@ -20,8 +20,6 @@
         </a>
             <a href="#" class="list-group-item">View your ads</a>
             <a href="/ads/create" class="list-group-item">Create ad</a>
-            <a href="#" class="list-group-item">Edit your ad</a>
-            <a href="/ads/delete" class="list-group-item">Delete your ad</a>
     </div>
 
     <div class="list-group col-xs-12 col-sm-6">
