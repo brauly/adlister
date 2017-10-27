@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.util.HashMap;
 
 
-@WebServlet(name = "UpdateServlet", urlPatterns = "ads/update")
+@WebServlet(name = "UpdateServlet", urlPatterns = "/ads/update")
 public class UpdateServlet extends HttpServlet {
         protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
             User user = (User) request.getSession().getAttribute("user");
