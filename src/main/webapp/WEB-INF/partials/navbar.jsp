@@ -29,7 +29,10 @@
                     </div>
                     <button type="submit" class="btn btn-default">Submit</button>
                 </form>
+                <%--if (user == null) {--%>
                 <li><a href="/login">Login <span class="glyphicon glyphicon-user"></span></a></li>
+
+                <%--if(user != null) {--%>
                 <li><a href="/logout">Logout</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->

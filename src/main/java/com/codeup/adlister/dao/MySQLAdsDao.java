@@ -55,10 +55,10 @@ public class MySQLAdsDao implements Ads {
 
     private Ad extractAd(ResultSet rs) throws SQLException {
         return new Ad(
-            rs.getLong("id"),
-            rs.getLong("user_id"),
-            rs.getString("title"),
-            rs.getString("description")
+                rs.getLong("id"),
+                rs.getLong("user_id"),
+                rs.getString("title"),
+                rs.getString("description")
 
 //            new User(rs.getLong("id"), rs.getString("firstname"), rs.getString("lastname"), rs.getString("username"), rs.getString("email"), rs.getString("password"))
         );
@@ -125,6 +125,22 @@ public class MySQLAdsDao implements Ads {
         }
         return null;
     }
+
+    @Override
+    public Boolean delete(Long id) {
+        String query = "DELETE FROM ads WHERE id = ?";
+        PreparedStatement stmt;
+        try {
+            stmt = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+            stmt.setLong(1, id);
+            stmt.executeUpdate();
+            return true;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        }
+        return false;
+    }
+
 }
-
-
