@@ -14,31 +14,35 @@
 
     <c:forEach var="ad" items="${ads}">
     <a href="/ads/show?id=${ad.id}">
-        <div class="panel panel-default">
+        <div class="panel panel-default ad-panel">
             <div class="panel-heading">
                 <h2 class="media-heading panel-title">
-                    <c:out value="${ad.title} - ${ad.getUsername()}"/></p>
+                   <p><c:out value="${ad.title} - ${ad.getUsername()}"/></p>
                 </h2>
-                <form action="/ads/delete" method="post">
-                    <div class="form-group">
-                        <input type="hidden" name="id" class="form-control" value="${ad.id}">
-                            <span class="pull-right">
-                                <button id="delete" class="btn btn-default">
-                                    <span class="glyphicon glyphicon-minus"></span>
-                                </button>
-                            </span>
+                <c:if test="${(sessionScope.user.id == ad.userId)}">
+                    <div class="pull-right">
+                        <form action="/ads/delete" method="post">
+                            <div class="form-group">
+                                <input type="hidden" name="id" class="form-control" value="${ad.id}">
+                                    <span class="pull-right">
+                                        <button id="delete" class="btn btn-default">
+                                            <span class="glyphicon glyphicon-minus"></span>
+                                        </button>
+                                    </span>
+                            </div>
+                        </form>
+                        <form action="/ads/update" method="get">
+                            <div class="form-group">
+                                <input type="hidden" name="id" class="form-control" value="${ad.id}">
+                                <span class="pull-right">
+                                        <button id="update" class="btn btn-default">
+                                            <span class="glyphicon glyphicon-pencil"></span>
+                                        </button>
+                                    </span>
+                            </div>
+                        </form>
                     </div>
-                </form>
-                <form action="/ads/update" method="post">
-                    <div class="form-group">
-                        <input type="hidden" name="id" class="form-control" value="${ad.id}">
-                        <span class="pull-right">
-                                <button id="update" class="btn btn-default">
-                                    <span class="glyphicon glyphicon-pencil"></span>
-                                </button>
-                            </span>
-                    </div>
-                </form>
+                </c:if>
 
             </div>
             <div class="media">

@@ -12,18 +12,19 @@ import java.io.IOException;
 import java.util.HashMap;
 
 
-@WebServlet(name = "UpdateServlet", urlPatterns = "ads/update")
+@WebServlet(name = "UpdateServlet", urlPatterns = "/ads/update")
 public class UpdateServlet extends HttpServlet {
         protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
             User user = (User) request.getSession().getAttribute("user");
             Long id = Long.parseLong(request.getParameter("id"));
             Ad ad = DaoFactory.getAdsDao().findById(id);
             if(ad == null || user.getId() != ad.getUserId()){
-                response.sendRedirect("/index");
+                response.sendRedirect("/ads");
+            }else{
+                request.setAttribute("ad", ad);
+                request.getRequestDispatcher("/WEB-INF/ads/update.jsp")
+                        .forward(request, response);
             }
-            request.setAttribute("ad", ad);
-            request.getRequestDispatcher("/WEB-INF/ads/update.jsp")
-                    .forward(request, response);
         }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {

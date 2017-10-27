@@ -14,7 +14,7 @@
                     Spooklist
             </a>
             <p class="navbar-text">
-                Creepin' it real since this past Thursday
+                Creepin' it real since Tuesday
             </p>
         </div>
 
