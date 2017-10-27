@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -14,10 +15,19 @@
             <label for="username">Username</label>
             <input id="username" name="username" class="form-control" type="text" autofocus>
 
+            <c:if test = "${Errors.containsKey('username')}">
+                <p class="error"> ${Errors.get('username')}</p>
+            </c:if>
+
         </div>
         <div class="form-group">
             <label for="password">Password</label>
             <input id="password" name="password" class="form-control" type="password">
+
+            <c:if test = "${Errors.containsKey('password')}">
+                <p class="error"> ${Errors.get('password')}</p>
+            </c:if>
+
         </div>
         <input type="submit" class="btn btn-primary btn-block" value="Log In">
     </form>

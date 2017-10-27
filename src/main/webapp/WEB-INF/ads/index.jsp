@@ -32,7 +32,7 @@
                                     </span>
                             </div>
                         </form>
-                        <form action="/ads/update" method="get">
+                        <form action="/ads/update" method="get" id="ads-update">
                             <div class="form-group">
                                 <input type="hidden" name="id" class="form-control" value="${ad.id}">
                                 <span class="pull-right">

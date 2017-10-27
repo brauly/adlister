@@ -92,7 +92,7 @@ img.media-object {
     margin-left: auto;
 }
 
-form[action="/ads/update"]{
+#ads-update{
     position: absolute;
     right: 55px;
     top: 10px;
