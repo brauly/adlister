@@ -1,6 +1,8 @@
 body {
     padding-top: 70px;
     background-image: url("/img/spiderweb.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 body, a:hover {
@@ -59,9 +61,5 @@ img.media-object {
     color: white;
     border: none;
 }
-
-/*#delete {*/
-    /*position: absolute;*/
-/*}*/
 
 
