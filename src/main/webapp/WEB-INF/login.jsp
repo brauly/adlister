@@ -14,20 +14,6 @@
             <label for="username">Username</label>
             <input id="username" name="username" class="form-control" type="text">
 
-            <script type="text/javascript">
-                (function() {
-                    var form = document.getElementsByName('username')[0];
-                    if (localStorage['username'] !== undefined) {
-                        var displayArea = document.getElementById('username');
-                        displayArea.textContent = localStorage['username'];
-                    }
-                    form.addEventListener('submit', function() {
-                        var nameField = document.getElementsByName('username')[0];
-                        localStorage['username'] = nameField.value;
-                    }, false);
-                })();
-            </script>
-
         </div>
         <div class="form-group">
             <label for="password">Password</label>

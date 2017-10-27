@@ -65,6 +65,11 @@ img.media-object {
     border: none;
 }
 
+.error {
+    color: red;
+    font-size: large;
+}
+
 #delete, #update btn {
     margin: 10px;
 }
