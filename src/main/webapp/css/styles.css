@@ -87,3 +87,18 @@ img.media-object {
     display: block;
     margin: 0 auto;
 }
+
+form[action="/ads/update"]{
+    position: absolute;
+    right: 55px;
+    top: 10px;
+}
+form[action="/ads/delete"]{
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.ad-panel {
+    position:relative;
+}

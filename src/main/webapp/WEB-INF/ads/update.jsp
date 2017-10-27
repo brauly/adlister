@@ -3,11 +3,12 @@
 <html>
 <head>
     <jsp:include page="/WEB-INF/partials/head.jsp">
-        <jsp:param name="title" value="Create a new Ad" />
+    <jsp:param name="title" value="Update ad" />
     </jsp:include>
 </head>
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
+
 <div class="container">
     <h1 class="text-center">Update a new ad</h1>
 <form action="/ads/update" method="post">
@@ -23,10 +24,11 @@
     <input type="submit" class="btn btn-block btn-primary">
 </form>
 </div>
+
 <jsp:include page="/WEB-INF/partials/scripts.jsp" />
 
 </body>
 </html>
-        <%--<c:if test = "${Errors.containsKey('firstname')}">--%>
-            <%--<p class="error"> ${Errors.get('firstname')}</p>--%>
-        <%--</c:if>--%>
+  <%--<c:if test = "${Errors.containsKey('firstname')}">--%>
+      <%--<p class="error"> ${Errors.get('firstname')}</p>--%>
+  <%--</c:if>--%>

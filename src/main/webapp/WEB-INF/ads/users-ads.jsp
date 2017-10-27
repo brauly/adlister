@@ -3,19 +3,15 @@
 <html>
 <head>
     <jsp:include page="/WEB-INF/partials/head.jsp">
-        <jsp:param name="title" value="Welcome!" />
+        <jsp:param name="title" value="View your ads" />
     </jsp:include>
 </head>
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
-<div class="container">
 
-    <div class="jumbotron text-center">
-        <h1>Welcome to Spooklist!</h1>
-        <p>A community of exchange for all things Halloween!</p>
-        <img id="ghost-gif" src="img/ghost.gif" alt="ghost">
-    </div>
-</div>
+<h1 class="text-center">View your ads</h1>
+
+
 
 <jsp:include page="/WEB-INF/partials/scripts.jsp" />
 

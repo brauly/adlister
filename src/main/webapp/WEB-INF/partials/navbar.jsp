@@ -14,7 +14,7 @@
                     Spooklist
             </a>
             <p class="navbar-text">
-                Creepin' it real since this past Thursday
+                Creepin' it real since Tuesday
             </p>
         </div>
 
@@ -22,7 +22,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <form class="navbar-form navbar-left" action="/search">
                     <div class="form-group">
-                        <input type="text" name="search" class="form-control" placeholder="Search">
+                        <input type="text" name="search" class="form-control" placeholder="Search all ads">
                     </div>
                     <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
                 </form>
@@ -47,8 +47,8 @@
 
                 <%-- Logged out --%>
                 <c:if test="${(sessionScope.user == null)}">
-                    <li class="text-center"><a href="/register">Register!</a></li>
-                    <li><a href="/login">Login <span class="glyphicon glyphicon-user"></span></a></li>
+                    <li class="text-center"><a href="/register">Register</a></li>
+                    <li><a href="/login">Login</a></li>
                 </c:if>
             <%-- End of logged out --%>
 
