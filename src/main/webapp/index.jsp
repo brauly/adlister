@@ -13,6 +13,7 @@
     <div class="jumbotron text-center">
         <h1>Welcome to Spooklist!</h1>
         <p>A community of exchange for all things Halloween!</p>
+        <p><a class="btn btn-primary btn-lg" href="/ads" role="button">View all ads</a></p>
         <img id="ghost-gif" src="img/ghost.gif" alt="ghost">
     </div>
 </div>

@@ -85,7 +85,11 @@ img.media-object {
 
 #ghost-gif {
     display: block;
-    margin: 0 auto;
+    /*margin: -30px auto;*/
+    margin-top: -30px;
+    margin-right: auto;
+    margin-bottom: -30px;
+    margin-left: auto;
 }
 
 form[action="/ads/update"]{
