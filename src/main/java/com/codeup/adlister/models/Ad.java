@@ -9,6 +9,8 @@ public class Ad {
     //made the user model a property of the ad class
 
 
+    public Ad() { }
+
     public Ad(long id, long userId, String title, String description) {
         this.id = id;
         this.userId = userId;

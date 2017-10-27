@@ -28,9 +28,9 @@ public class MySQLAdsDao implements Ads {
     public List<Ad> all() {
         PreparedStatement stmt = null;
         try {
-            stmt = connection.prepareStatement("SELECT * FROM ads");
+            stmt = connection.prepareStatement("SELECT * FROM ads JOIN users ON ads.user_id = users.id");
             ResultSet rs = stmt.executeQuery();
-            return createAdsFromResults(rs);
+            return createAdsWithUsersFromResults(rs);
         } catch (SQLException e) {
             throw new RuntimeException("Error retrieving all ads.", e);
         }
@@ -55,10 +55,10 @@ public class MySQLAdsDao implements Ads {
 
     private Ad extractAd(ResultSet rs) throws SQLException {
         return new Ad(
-            rs.getLong("id"),
-            rs.getLong("user_id"),
-            rs.getString("title"),
-            rs.getString("description")
+                rs.getLong("id"),
+                rs.getLong("user_id"),
+                rs.getString("title"),
+                rs.getString("description")
 
 //            new User(rs.getLong("id"), rs.getString("firstname"), rs.getString("lastname"), rs.getString("username"), rs.getString("email"), rs.getString("password"))
         );
@@ -66,12 +66,12 @@ public class MySQLAdsDao implements Ads {
 
     private Ad extractAds(ResultSet rs) throws SQLException {
         return new Ad(
-                rs.getLong("id"),
-                rs.getLong("user_id"),
-                rs.getString("title"),
-                rs.getString("description"),
+            rs.getLong("id"),
+            rs.getLong("user_id"),
+            rs.getString("title"),
+            rs.getString("description"),
 
-                new User(rs.getLong("id"), rs.getString("firstname"), rs.getString("lastname"), rs.getString("username"), rs.getString("email"), rs.getString("password"))
+            new User(rs.getLong("id"), rs.getString("firstname"), rs.getString("lastname"), rs.getString("username"), rs.getString("email"), rs.getString("password"))
         );
     }
 
@@ -79,6 +79,14 @@ public class MySQLAdsDao implements Ads {
         List<Ad> ads = new ArrayList<>();
         while (rs.next()) {
             ads.add(extractAd(rs));
+        }
+        return ads;
+    }
+
+    private List<Ad> createAdsWithUsersFromResults(ResultSet rs) throws SQLException {
+        List<Ad> ads = new ArrayList<>();
+        while (rs.next()) {
+            ads.add(extractAds(rs));
         }
         return ads;
     }
@@ -125,6 +133,36 @@ public class MySQLAdsDao implements Ads {
         }
         return null;
     }
+
+    @Override
+    public Boolean delete(Long id) {
+        String query = "DELETE FROM ads WHERE id = ?";
+        PreparedStatement stmt;
+        try {
+            stmt = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+            stmt.setLong(1, id);
+            stmt.executeUpdate();
+            return true;
+
+        } catch (SQLException e) {
+//            throw new RuntimeException("Error deleting the ad.", e);
+            return false;
+        }
+    }
+
+    @Override
+    public void update(Ad ad) {
+        String query = "UPDATE ads SET title = ?, description = ? WHERE id =?";
+        PreparedStatement stmt;
+        try {
+            stmt = connection.prepareStatement(query);
+            stmt.setString(1, ad.getTitle());
+            stmt.setString(2, ad.getDescription());
+            stmt.setLong(3, ad.getId());
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException("Error updating the ad.", e);
+        }
+    }
+
 }
-
-
