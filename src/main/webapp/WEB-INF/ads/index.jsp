@@ -17,8 +17,20 @@
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h2 class="media-heading panel-title">
-                    <c:out value="${ad.title}" />
+                <c:out value="${ad.title}" />
                 </h2>
+                <form action="/ads/delete" method="post">
+                    <div class="form-group">
+                        <input type="hidden" name="id" class="form-control" value="${ad.id}">
+                            <span class="pull-right">
+                                <button id="delete" class="btn btn-default">
+                                    <span class="glyphicon glyphicon-minus"></span>
+                                </button>
+                            </span>
+                    </div>
+                </form>
+                        <%--<span class="glyphicon glyphicon-pencil"></span>--%>
+
             </div>
             <div class="media">
                 <div class="media-left">
@@ -37,3 +49,6 @@
 
 </body>
 </html>
+
+
+
