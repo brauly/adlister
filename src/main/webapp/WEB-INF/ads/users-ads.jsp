@@ -3,13 +3,13 @@
 <html>
 <head>
     <jsp:include page="/WEB-INF/partials/head.jsp">
-        <jsp:param name="title" value="Update ad" />
+        <jsp:param name="title" value="View your ads" />
     </jsp:include>
 </head>
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 
-<h1 class="text-center">Edit ad</h1>
+<h1 class="text-center">View your ads</h1>
 
 
 

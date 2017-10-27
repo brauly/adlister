@@ -17,7 +17,7 @@
             <h3 class="panel-title"><c:out value="${ad.title} - ${ad.getUsername()}" /></h3>
         </div>
         <div class="panel-body">
-            <img class="media-object" src="http://lorempixel.com/100/100/" alt="random-image">
+            <img class="media-object" src="http://via.placeholder.com/100x100" alt="random-image">
             <p><c:out value="${ad.description}" /></p>
             <p> - <c:out value="${ad.getFirstname()}"/></p>
         </div>
