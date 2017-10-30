@@ -30,15 +30,19 @@ public class LoginServlet extends HttpServlet {
 
         User user = DaoFactory.getUsersDao().findByUsername(username);
 
+        HashMap<String, String> Errors = new HashMap<>();
 
-//        if (user == null) {
-//            response.sendRedirect("/login");
-//            return;
-//        }
+        if (user == null) {
+
+             Errors.put("username", "Credentials did not match");
+        request.setAttribute("Errors", Errors);
+
+        request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
+            return;
+        }
 
         boolean loginHasIssues = username.isEmpty() || password.isEmpty();
 
-        HashMap<String, String> Errors = new HashMap<>();
         if (username.isEmpty()) {
             Errors.put("username", "Please enter a valid username");
         }else{
