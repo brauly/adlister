@@ -24,7 +24,7 @@ public class UpdateProfileServlet extends HttpServlet {
         String newPassword = request.getParameter("newPassword");
         boolean passwordChanged = true;
 
-//        String hash = Password.hash(password);
+
         String passwordConfirmation = request.getParameter("confirmPassword");
 
         HashMap<String, String> errors = new HashMap<>();
