@@ -37,6 +37,7 @@ public class LoginServlet extends HttpServlet {
              Errors.put("username", "Credentials did not match");
         request.setAttribute("Errors", Errors);
 
+
         request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
             return;
         }
@@ -66,9 +67,11 @@ public class LoginServlet extends HttpServlet {
             request.getSession().setAttribute("user", user);
             response.sendRedirect("/profile");
         } else {
+
+            Errors.put("password", "Credentials did not match");
+            request.setAttribute("Errors", Errors);
             request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
         }
-
 
     }
 }
