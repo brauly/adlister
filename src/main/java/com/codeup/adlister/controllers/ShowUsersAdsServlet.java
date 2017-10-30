@@ -21,7 +21,8 @@ import java.io.IOException;
 public class ShowUsersAdsServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setAttribute("ads", DaoFactory.getAdsDao().all());
+        Long id = Long.parseLong(request.getParameter("id"));
+        request.setAttribute("ads", DaoFactory.getAdsDao().showUserAds(id));
         request.getRequestDispatcher("/WEB-INF/ads/users-ads.jsp").forward(request, response);
     }
 }

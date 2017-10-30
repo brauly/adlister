@@ -19,7 +19,7 @@
             Manage your ads
         </a>
         <a href="/ads" class="list-group-item">View all ads</a>
-        <a href="/users-ads" class="list-group-item">View your ads</a>
+        <a href="/ads/users-ads?id=${sessionScope.user.id}" class="list-group-item">View your ads</a>
         <a href="/ads/create" class="list-group-item">Create ad</a>
     </div>
 

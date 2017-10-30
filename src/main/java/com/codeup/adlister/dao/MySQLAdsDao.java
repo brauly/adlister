@@ -66,12 +66,12 @@ public class MySQLAdsDao implements Ads {
 
     private Ad extractAds(ResultSet rs) throws SQLException {
         return new Ad(
-            rs.getLong("id"),
-            rs.getLong("user_id"),
-            rs.getString("title"),
-            rs.getString("description"),
+                rs.getLong("id"),
+                rs.getLong("user_id"),
+                rs.getString("title"),
+                rs.getString("description"),
 
-            new User(rs.getLong("id"), rs.getString("firstname"), rs.getString("lastname"), rs.getString("username"), rs.getString("email"), rs.getString("password"))
+                new User(rs.getLong("id"), rs.getString("firstname"), rs.getString("lastname"), rs.getString("username"), rs.getString("email"), rs.getString("password"))
         );
     }
 
@@ -133,6 +133,22 @@ public class MySQLAdsDao implements Ads {
         }
         return null;
     }
+
+    @Override
+    public List<Ad> showUserAds(Long id) {
+        String query = "SELECT * FROM ads JOIN users ON ads.user_id = users.id WHERE users.id = ?";
+        PreparedStatement stmt;
+        try {
+            stmt = connection.prepareStatement(query);
+            stmt.setLong(1, id);
+            ResultSet rs = stmt.executeQuery();
+            return createAdsFromResults(rs);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error finding users' ads.", e);
+
+        }
+    }
+
 
     @Override
     public Boolean delete(Long id) {

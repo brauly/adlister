@@ -17,6 +17,8 @@ public class UpdateServlet extends HttpServlet {
         protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
             User user = (User) request.getSession().getAttribute("user");
             Long id = Long.parseLong(request.getParameter("id"));
+            String referer = request.getHeader("Referer");
+            request.getSession().setAttribute("previousPage", referer);
             Ad ad = DaoFactory.getAdsDao().findById(id);
             if(ad == null || user.getId() != ad.getUserId()){
                 response.sendRedirect("/ads");
@@ -52,7 +54,9 @@ public class UpdateServlet extends HttpServlet {
             ad.setDescription(description);
 
             DaoFactory.getAdsDao().update(ad);
-            response.sendRedirect("/ads");
+           String referer = (String) request.getSession().getAttribute("previousPage");
+        response.sendRedirect(referer);
+//            response.sendRedirect("/ads");
         } else {
             request.setAttribute("errors", errors);
             request.setAttribute("ad", ad);
