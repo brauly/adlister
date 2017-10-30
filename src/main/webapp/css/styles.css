@@ -106,3 +106,8 @@ form[action="/ads/delete"]{
 .ad-panel {
     position:relative;
 }
+
+/*button#update-profile.btn.btn-primary {*/
+    /*display: block !important;*/
+    /*margin: 0 auto !important;*/
+/*}*/
