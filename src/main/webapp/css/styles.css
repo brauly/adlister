@@ -107,7 +107,6 @@ form[action="/ads/delete"]{
     position:relative;
 }
 
-/*button#update-profile.btn.btn-primary {*/
-    /*display: block !important;*/
-    /*margin: 0 auto !important;*/
+/*#update-profile {*/
+    /*width: 100%;*/
 /*}*/
