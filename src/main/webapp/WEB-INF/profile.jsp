@@ -27,8 +27,7 @@
         <a href="#" class="list-group-item active">
             Manage your profile
         </a>
-        <a href="/update-profile" class="list-group-item">Update profile</a>
-        <a href="/update-password" class="list-group-item">Change password</a>
+        <a href="/update-profile" class="list-group-item">Update profile info</a>
     </div>
 
 </div>
