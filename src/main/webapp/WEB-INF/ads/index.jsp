@@ -17,7 +17,7 @@
         <div class="panel panel-default ad-panel">
             <div class="panel-heading">
                 <h2 class="media-heading panel-title">
-                   <p><c:out value="${ad.title} - ${ad.getUsername()}"/></p>
+                   <p><c:out value="${ad.title} - ${ad.getUser().getUsername()}"/></p>
                 </h2>
 
                 <c:if test="${(sessionScope.user.id == ad.userId)}">
@@ -53,7 +53,7 @@
                 <div class="media-body">
                     <div class="panel-body">
                         <p><c:out value="${ad.description}"/></p>
-                        <p> - <c:out value="${ad.getFirstname()}"/></p>
+                        <p> - <c:out value="${ad.getUser().getFirstname()}"/></p>
                     </div>
                 </div>
             </div>

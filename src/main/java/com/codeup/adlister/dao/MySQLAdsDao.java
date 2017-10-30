@@ -93,24 +93,30 @@ public class MySQLAdsDao implements Ads {
 
     @Override
     public List<Ad> search(String searchTerm) {
-        String query = "SELECT * FROM ads WHERE title LIKE ? OR description LIKE ?";
+        String query = "SELECT * FROM ads JOIN users on ads.user_id = users.id WHERE ads.title LIKE ? OR ads.description LIKE ?";
         try {
             PreparedStatement stmt = connection.prepareStatement(query);
             stmt.setString(1, "%" + searchTerm + "%");
             stmt.setString(2, "%" + searchTerm + "%");
 
             ResultSet rs = stmt.executeQuery();
-            List ads = new ArrayList();
-            while (rs.next()) {
-                Long id = rs.getLong("id");
-                Long user_id = rs.getLong("user_id");
-                String title = rs.getString("title");
-                String description = rs.getString("description");
-
-                Ad ad = new Ad(id, user_id, title, description);
-                ads.add(ad);
-            }
-            return ads;
+//            List ads = new ArrayList();
+//            while (rs.next()) {
+//                Long id = rs.getLong("id");
+//                Long user_id = rs.getLong("user_id");
+//                String title = rs.getString("title");
+//                String description = rs.getString("description");
+//                User user = new User(
+//                        rs.getString("firstname"),
+//                        rs.getString("lastname"),
+//                        rs.getString("username"),
+//                        rs.getString("email"),
+//                        rs.getString("password")
+//                );
+//                Ad ad = new Ad(id, user_id, title, description, user);
+//                ads.add(ad);
+//            }
+            return createAdsFromResults(rs);
         } catch (SQLException e) {
             e.printStackTrace();
             return null;

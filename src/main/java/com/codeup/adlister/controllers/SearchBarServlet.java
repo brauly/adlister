@@ -1,4 +1,5 @@
 package com.codeup.adlister.controllers;
+
 import com.codeup.adlister.dao.DaoFactory;
 import com.codeup.adlister.models.Ad;
 
@@ -13,9 +14,9 @@ import java.util.List;
 @WebServlet(name = "SearchBarServlet", urlPatterns = "/search")
 public class SearchBarServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-String searchAd = request.getParameter("search");
-List<Ad> ads = DaoFactory.getAdsDao().search(searchAd);
-request.setAttribute("ads", ads);
+        String searchAd = request.getParameter("search");
+        List<Ad> ads = DaoFactory.getAdsDao().search(searchAd);
+        request.setAttribute("ads", ads);
         request.getRequestDispatcher("/WEB-INF/ads/index.jsp").forward(request, response);
     }
 }
