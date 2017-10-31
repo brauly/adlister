@@ -64,14 +64,6 @@ public class Ad {
         this.description = description;
     }
 
-//    public String getFirstname() {
-//        return user.getFirstname();
-//    }
-//
-//    public String getUsername() {
-//        return user.getUsername();
-//    }
-
     public User getUser() {
         return user;
     }
