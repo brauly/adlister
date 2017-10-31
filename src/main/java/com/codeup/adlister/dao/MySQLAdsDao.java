@@ -116,7 +116,7 @@ public class MySQLAdsDao implements Ads {
 //                Ad ad = new Ad(id, user_id, title, description, user);
 //                ads.add(ad);
 //            }
-            return createAdsFromResults(rs);
+            return createAdsWithUsersFromResults(rs);
         } catch (SQLException e) {
             e.printStackTrace();
             return null;
