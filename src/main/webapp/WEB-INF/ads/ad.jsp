@@ -14,12 +14,12 @@
 
     <div class="panel panel-default">
         <div class="panel-heading">
-            <h3 class="panel-title"><c:out value="${ad.title} - ${ad.getUsername()}" /></h3>
+            <h3 class="panel-title"><c:out value="${ad.title} - ${ad.user.username}" /></h3>
         </div>
         <div class="panel-body">
             <img class="media-object" src="http://via.placeholder.com/100x100" alt="random-image">
             <p><c:out value="${ad.description}" /></p>
-            <p> - <c:out value="${ad.getFirstname()}"/></p>
+            <p> - <c:out value="${ad.user.firstname}"/></p>
         </div>
     </div>
 
