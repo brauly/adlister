@@ -16,6 +16,12 @@ CREATE TABLE users (
   PRIMARY KEY (id)
 );
 
+CREATE TABLE categories (
+  id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  classification VARCHAR(100),
+  PRIMARY KEY (id)
+);
+
 CREATE TABLE ads (
   id INT UNSIGNED NOT NULL AUTO_INCREMENT,
   user_id INT UNSIGNED NOT NULL,
@@ -28,8 +34,3 @@ CREATE TABLE ads (
   FOREIGN KEY (category_id) REFERENCES categories(id)
 );
 
-CREATE TABLE categories (
-  id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-  classification VARCHAR(100),
-  PRIMARY KEY (id)
-);
