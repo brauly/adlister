@@ -32,15 +32,6 @@ public class LoginServlet extends HttpServlet {
 
         HashMap<String, String> Errors = new HashMap<>();
 
-        if (user == null) {
-
-             Errors.put("username", "Credentials did not match");
-        request.setAttribute("Errors", Errors);
-
-
-        request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
-            return;
-        }
 
         boolean loginHasIssues = username.isEmpty() || password.isEmpty();
 
@@ -61,6 +52,15 @@ public class LoginServlet extends HttpServlet {
             request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
         }
 
+        if (user == null) {
+
+             Errors.put("username", "Credentials did not match");
+        request.setAttribute("Errors", Errors);
+
+
+        request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
+            return;
+        }
         boolean validAttempt = Password.check(password, user.getPassword());
 
         if (validAttempt) {
