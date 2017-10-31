@@ -6,7 +6,7 @@ INSERT INTO categories (classification)
 
 VALUES
 ('events'),
+('for sale'),
 ('housing'),
 ('jobs'),
-('for sale'),
 ('services')
