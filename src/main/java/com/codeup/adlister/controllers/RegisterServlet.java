@@ -33,7 +33,6 @@ public class RegisterServlet extends HttpServlet {
             request.setAttribute("error", username + " Username is already taken, please try another");
             request.setAttribute("username", username);
             request.setAttribute("email", email);
-            request.setAttribute("password", password);
             request.getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response);
             return;
         }
@@ -68,8 +67,6 @@ public class RegisterServlet extends HttpServlet {
         }
         if (password.isEmpty()) {
             Errors.put("password", "Password field is empty!");
-        }else{
-            request.setAttribute("password", password);
         }
         if (!passwordConfirmation.equals(password)) {
             Errors.put("confirm_password", "Passwords must match!");

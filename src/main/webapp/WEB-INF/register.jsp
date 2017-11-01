@@ -51,7 +51,7 @@
         </div>
         <div class="form-group">
             <label for="password">Password</label>
-            <input id="password" name="password" class="form-control" value="${password}" type="password">
+            <input id="password" name="password" class="form-control" type="password">
 
             <c:if test = "${Errors.containsKey('password')}">
                 <p class="error"> ${Errors.get('password')}</p>
@@ -60,7 +60,7 @@
         </div>
         <div class="form-group">
             <label for="confirm_password">Confirm Password</label>
-            <input id="confirm_password" name="confirm_password" class="form-control" value="${confirm_password}" type="password">
+            <input id="confirm_password" name="confirm_password" class="form-control" type="password">
 
             <c:if test = "${Errors.containsKey('confirm_password')}">
                 <p class="error"> ${Errors.get('confirm_password')}</p>
