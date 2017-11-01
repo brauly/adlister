@@ -133,7 +133,8 @@ public class MySQLAdsDao implements Ads {
             stmt = connection.prepareStatement(query);
             stmt.setLong(1, id);
             ResultSet rs = stmt.executeQuery();
-            return createAdsFromResults(rs);
+//            return createAdsFromResults(rs);
+            return createAdsWithUsersFromResults(rs);
         } catch (SQLException e) {
             throw new RuntimeException("Error finding users' ads.", e);
 

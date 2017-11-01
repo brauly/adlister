@@ -11,7 +11,7 @@
 
 <div class="container">
 
-    <h1 class="text-center">Update your ad</h1>
+    <h1 class="text-center title">Update your ad</h1>
     <form action="/ads/update" method="post">
         <input name="id" type="hidden" value="${ad.id}">
         <div class="form-group">

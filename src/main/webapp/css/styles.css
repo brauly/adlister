@@ -11,6 +11,16 @@ body, a:hover {
     text-decoration: none;
 }
 
+.title {
+    font-family: 'Creepster', cursive;
+    color: #000;
+    letter-spacing: 5px;
+}
+
+.brand-title {
+
+}
+
 a:link {
     text-decoration: none;
 }

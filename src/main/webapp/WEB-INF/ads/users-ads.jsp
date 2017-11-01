@@ -9,15 +9,14 @@
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 
-<h1 class="text-center">View your ads</h1>
+<h1 class="text-center title">View your ads <a href="/ads/create"><button class="btn btn-default"><span class="glyphicon glyphicon-plus"></span></button></a></h1>
 <div class="container">
-    <h1 class="text-center">Spooklist Advertisements</h1>
 
     <c:forEach var="ad" items="${ads}">
             <div class="panel panel-default ad-panel">
                 <div class="panel-heading">
                     <h2 class="media-heading panel-title">
-                        <p><c:out value="${ad.title} - ${ad.description}"/></p>
+                        <p><c:out value="${ad.title} - ${ad.user.username}"/></p>
                     </h2>
 
                     <c:if test="${(sessionScope.user.id == ad.userId)}">
@@ -52,8 +51,8 @@
                     </div>
                     <div class="media-body">
                         <div class="panel-body">
-                            <p><c:out value="${ad.title}"/></p>
-                            <p> - <c:out value="${ad.description}"/></p>
+                            <p><c:out value="${ad.description}"/></p>
+                            <p> - <c:out value="${ad.user.firstname}"/></p>
                         </div>
                     </div>
                 </div>
