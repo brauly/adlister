@@ -69,7 +69,7 @@ img.media-object {
     border-color: #FA8F36;
 }
 
-.btn, .btn:hover {
+.btn, .btn:hover, button:active {
     background-color: black;
     color: white;
     border: none;
@@ -78,6 +78,11 @@ img.media-object {
 .error {
     color: red;
     font-size: large;
+}
+
+.alert {
+ display: inline-block;
+    opacity: 0.9;
 }
 
 #delete, #update btn {
@@ -116,7 +121,3 @@ form[action="/ads/delete"]{
 .ad-panel {
     position:relative;
 }
-
-/*#update-profile {*/
-    /*width: 100%;*/
-/*}*/

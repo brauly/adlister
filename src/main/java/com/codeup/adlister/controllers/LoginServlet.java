@@ -36,12 +36,12 @@ public class LoginServlet extends HttpServlet {
         boolean loginHasIssues = username.isEmpty() || password.isEmpty();
 
         if (username.isEmpty()) {
-            Errors.put("username", "Please enter a valid username");
+            Errors.put("username", "<div class='alert alert-danger'>Please enter a valid username</div>");
         }else{
             request.setAttribute("username", username);
         }
         if (password.isEmpty()) {
-            Errors.put("password", "Please enter a correct password");
+            Errors.put("password", "<div class='alert alert-danger'>Please enter the correct password</div>");
         }else{
             request.setAttribute("password", password);
         }
@@ -54,7 +54,7 @@ public class LoginServlet extends HttpServlet {
 
         if (user == null) {
 
-             Errors.put("username", "Credentials did not match");
+             Errors.put("username", "<div class='alert alert-danger'>Credentials do not match</div>");
         request.setAttribute("Errors", Errors);
 
 
@@ -68,7 +68,7 @@ public class LoginServlet extends HttpServlet {
             response.sendRedirect("/profile");
         } else {
 
-            Errors.put("password", "Credentials did not match");
+            Errors.put("password", "<div class='alert alert-danger'>Credentials do not match</div>");
             request.setAttribute("Errors", Errors);
             request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
         }

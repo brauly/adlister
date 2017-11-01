@@ -32,31 +32,31 @@ public class UpdateProfileServlet extends HttpServlet {
         User user = (User) request.getSession().getAttribute("user");
 
         if (firstname.isEmpty()) {
-            errors.put("firstname", "First name is required");
+            errors.put("firstname", "<div class='alert alert-danger'>Please enter first name</div>");
         }
         if (lastname.isEmpty()) {
-            errors.put("lastname", "Last name is required");
+            errors.put("lastname", "<div class='alert alert-danger'>Please enter last name</div>");
         }
         if (email.isEmpty()) {
-            errors.put("email", "Email is required");
+            errors.put("email", "<div class='alert alert-danger'>Please enter email</div>");
         }
 
 
         if (password != null && !password.equals("")) {
 
             if (password.isEmpty()) {
-                errors.put("password", "Password is required");
+                errors.put("password", "<div class='alert alert-danger'>Please enter password</div>");
                 passwordChanged = false;
             }
 
             if (!BCrypt.checkpw(password, user.getPassword())) {
-                errors.put("currentPassword", "This is not your current password");
+                errors.put("currentPassword", "<div class='alert alert-danger'>This is not your current password</div>");
                 passwordChanged = false;
 
             }
 
             if (!passwordConfirmation.equals(newPassword)) {
-                errors.put("confirmPassword", "Passwords must match!");
+                errors.put("confirmPassword", "<div class='alert alert-danger'>Passwords must match</div>");
                 passwordChanged = false;
 
             }
