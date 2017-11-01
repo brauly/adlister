@@ -1,5 +1,6 @@
 package com.codeup.adlister.dao;
 
+import com.codeup.adlister.models.Ad;
 import com.codeup.adlister.models.Category;
 import com.mysql.cj.jdbc.Driver;
 
@@ -36,6 +37,13 @@ public class MySQLCategoriesDao implements Categories {
             throw new RuntimeException("Error retrieving categories.", e);
         }
     }
+
+//    @Override
+//    public List<Category> findAdCategories(Ad ad) {
+//        List<String> categories = new ArrayList<>();
+//
+//        return null;
+//    }
 
 
     private Category extractCategory(ResultSet rs) throws SQLException {

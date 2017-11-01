@@ -20,8 +20,8 @@ public class UpdateServlet extends HttpServlet {
             String referer = request.getHeader("Referer");
             request.getSession().setAttribute("previousPage", referer);
             Ad ad = DaoFactory.getAdsDao().findById(id);
-            if(ad == null || user.getId() != ad.getUserId()){
-                response.sendRedirect("/ads");
+            if(user == null || user.getId() != ad.getUserId()){
+                response.sendRedirect("/login");
             }else{
                 request.setAttribute("ad", ad);
                 request.getRequestDispatcher("/WEB-INF/ads/update.jsp")

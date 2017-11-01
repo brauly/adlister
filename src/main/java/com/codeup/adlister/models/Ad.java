@@ -7,6 +7,7 @@ public class Ad {
     private String description;
     private long categoryId;
     private User user;
+    private Category category;
     //made the user model a property of the ad class
 
 
@@ -39,6 +40,17 @@ public class Ad {
         this.description = description;
         this.user = user;
     }
+
+//    public Ad(long id, long userId, String title, String description, long categoryId, Category category, User user) {
+//        this.id = id;
+//        this.userId = userId;
+//        this.title = title;
+//        this.description = description;
+//        this.categoryId = categoryId;
+//        this.category = category;
+//        this.user = user;
+//    }
+
 
 
 
@@ -90,6 +102,14 @@ public class Ad {
     public void setUser(User user) {
         this.user = user;
     }
+
+//    public Category getCategory() {
+//        return category;
+//    }
+//
+//    public void setCategory(Category category) {
+//        this.category = category;
+//    }
 }
 
 
