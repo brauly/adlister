@@ -107,6 +107,10 @@ form[action="/ads/delete"]{
     position:relative;
 }
 
+.headings {
+    font-size: larger;
+}
+
 /*#update-profile {*/
     /*width: 100%;*/
 /*}*/

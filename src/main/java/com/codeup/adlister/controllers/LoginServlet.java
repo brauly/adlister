@@ -42,8 +42,6 @@ public class LoginServlet extends HttpServlet {
         }
         if (password.isEmpty()) {
             Errors.put("password", "Please enter a correct password");
-        }else{
-            request.setAttribute("password", password);
         }
 
         request.setAttribute("Errors", Errors);

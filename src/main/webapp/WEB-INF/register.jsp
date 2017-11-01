@@ -13,7 +13,7 @@
     <form action="/register" method="post">
         <div class="form-group">
             <label for="firstname">First Name</label>
-            <input id="firstname" name="firstname" class="form-control" type="text">
+            <input id="firstname" name="firstname" class="form-control" value="${firstname}" type="text">
 
             <c:if test = "${Errors.containsKey('firstname')}">
                 <p class="error"> ${Errors.get('firstname')}</p>
@@ -22,7 +22,7 @@
         </div>
         <div class="form-group">
             <label for="lastname">Last Name</label>
-            <input id="lastname" name="lastname" class="form-control" type="text">
+            <input id="lastname" name="lastname" class="form-control" value="${lastname}" type="text">
 
             <c:if test = "${Errors.containsKey('lastname')}">
                 <p class="error"> ${Errors.get('lastname')}</p>
