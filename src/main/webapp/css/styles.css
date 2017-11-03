@@ -3,6 +3,8 @@ body {
     background-image: url("/img/spiderweb.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+    font-family: 'Dosis', sans-serif;
+    letter-spacing: 2px;
 }
 
 body, a:hover {

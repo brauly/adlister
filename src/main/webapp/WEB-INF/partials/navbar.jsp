@@ -14,7 +14,7 @@
                     <span class="title brand-title">Spooklist</span>
             </a>
             <p class="navbar-text">
-                Creepin' it real since Tuesday
+                Creepin' it real
             </p>
         </div>
 
