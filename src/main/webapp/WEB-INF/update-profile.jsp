@@ -9,7 +9,7 @@
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp"/>
 
-<h1 class="text-center">Update your profile</h1>
+<h1 class="text-center title">Update your profile</h1>
 
 <div class="row">
 

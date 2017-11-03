@@ -10,7 +10,7 @@
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 
 <div class="container">
-    <h1 class="text-center">Advertisement</h1>
+    <h1 class="text-center title">Advertisement</h1>
 
     <div class="panel panel-default">
         <div class="panel-heading">

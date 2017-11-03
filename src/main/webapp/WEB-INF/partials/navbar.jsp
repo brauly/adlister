@@ -11,7 +11,7 @@
             </button>
             <a class="navbar-brand" href="/index.jsp">
                 <img src="/img/ghost.png" alt="ghost">
-                    Spooklist
+                    <span class="title brand-title">Spooklist</span>
             </a>
             <p class="navbar-text">
                 Creepin' it real since Tuesday
