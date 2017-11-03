@@ -46,20 +46,15 @@
                 </c:if>
 
             </div>
+
             <div class="media">
                 <div class="media-left">
                     <img class="media-object" src="http://via.placeholder.com/100x100" alt="random-image">
                 </div>
-
-                <div class="media">
-                    <div class="media-left">
-                        <img class="media-object" src="http://via.placeholder.com/100x100" alt="random-image">
-                    </div>
-                    <div class="media-body">
-                        <div class="panel-body">
-                            <p><c:out value="${ad.description}"/></p>
-                            <p> - <c:out value="${ad.user.firstname}"/></p>
-                        </div>
+                <div class="media-body">
+                    <div class="panel-body">
+                        <p><c:out value="${ad.description}"/></p>
+                        <p> - <c:out value="${ad.user.firstname}"/></p>
                     </div>
                 </div>
             </div>
