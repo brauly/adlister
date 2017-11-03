@@ -16,6 +16,8 @@ public interface Ads {
 
     List<Ad> showUserAds(Long id);
 
+    List<Ad> findAdsByCategory(Long id);
+
     Boolean delete(Long id);
 
     void update(Ad ad);

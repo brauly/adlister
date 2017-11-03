@@ -123,3 +123,7 @@ form[action="/ads/delete"]{
 .ad-panel {
     position:relative;
 }
+
+.headings {
+    font-size: larger;
+}
