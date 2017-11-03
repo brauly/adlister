@@ -38,7 +38,3 @@
 
 </body>
 </html>
-
-<%--<c:if test = "${Errors.containsKey('firstname')}">--%>
-<%--<p class="error"> ${Errors.get('firstname')}</p>--%>
-<%--</c:if>--%>

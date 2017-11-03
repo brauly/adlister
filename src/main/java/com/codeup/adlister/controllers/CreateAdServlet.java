@@ -45,12 +45,12 @@ public class CreateAdServlet extends HttpServlet {
         HashMap errors = new HashMap();
 
         if(title.isEmpty()){
-            errors.put("title", "A title is required");
+            errors.put("title", "<div class='alert alert-danger'>A title is required</div>");
             request.setAttribute("categories", categories);
         }
 
         if(description.isEmpty()){
-            errors.put("description", "A description is required");
+            errors.put("description", "<div class='alert alert-danger'>A description is required</div>");
             request.setAttribute("categories", categories);
         }
 
