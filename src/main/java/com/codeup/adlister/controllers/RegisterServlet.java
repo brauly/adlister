@@ -46,30 +46,30 @@ public class RegisterServlet extends HttpServlet {
 
         HashMap<String, String> Errors = new HashMap<>();
         if (firstname.isEmpty()) {
-            Errors.put("firstname", "firstname field is empty");
+            Errors.put("firstname", "<div class='alert alert-danger'>Please enter first name</div>");
         }else{
             request.setAttribute("firstname", firstname);
         }
         if (lastname.isEmpty()) {
-            Errors.put("lastname", "lastname field is empty");
+            Errors.put("lastname", "<div class='alert alert-danger'>Please enter last name</div>");
         }else{
             request.setAttribute("lastname", lastname);
         }
         if (username.isEmpty()) {
-            Errors.put("username", "Username field is empty!");
+            Errors.put("username", "<div class='alert alert-danger'>Please enter username</div>");
         }else{
             request.setAttribute("username", username);
         }
         if (email.isEmpty()) {
-            Errors.put("email", "Email field is empty!");
+            Errors.put("email", "<div class='alert alert-danger'>Please enter email</div>");
         }else{
             request.setAttribute("email", email);
         }
         if (password.isEmpty()) {
-            Errors.put("password", "Password field is empty!");
+            Errors.put("password", "<div class='alert alert-danger'>Please enter password</div>");
         }
         if (!passwordConfirmation.equals(password)) {
-            Errors.put("confirm_password", "Passwords must match!");
+            Errors.put("confirm_password", "<div class='alert alert-danger'>Passwords must match</div>");
         }
 
         request.setAttribute("Errors", Errors);

@@ -191,4 +191,3 @@ public class MySQLAdsDao implements Ads {
     }
 
 }
-//category_id = ?,

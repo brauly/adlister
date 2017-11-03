@@ -9,7 +9,7 @@
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp"/>
 <div class="container">
-    <h1 class="text-center">Please Log In</h1>
+    <h1 class="text-center title">Please Login</h1>
 
     <c:if test="${Errors.containsKey('username')}">
         <p class="error"> ${Errors.get('username')}</p>
@@ -26,7 +26,7 @@
         </div>
         <div class="form-group">
             <label for="password">Password</label>
-            <input id="password" name="password" class="form-control" value="${password}" type="password">
+            <input id="password" name="password" class="form-control" type="password">
 
 
         </div>
