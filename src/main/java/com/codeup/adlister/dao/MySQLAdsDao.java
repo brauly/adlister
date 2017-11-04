@@ -1,6 +1,7 @@
 package com.codeup.adlister.dao;
 
 import com.codeup.adlister.models.Ad;
+import com.codeup.adlister.models.Category;
 import com.codeup.adlister.models.User;
 import com.mysql.cj.jdbc.Driver;
 
@@ -28,9 +29,9 @@ public class MySQLAdsDao implements Ads {
     public List<Ad> all() {
         PreparedStatement stmt = null;
         try {
-            stmt = connection.prepareStatement("SELECT * FROM ads JOIN users ON ads.user_id = users.id");
+            stmt = connection.prepareStatement("SELECT * FROM ads JOIN users ON ads.user_id = users.id JOIN categories ON ads.category_id = categories.id ");
             ResultSet rs = stmt.executeQuery();
-            return createAdsWithUsersFromResults(rs);
+            return createAdsWithUsersCategories(rs);
         } catch (SQLException e) {
             throw new RuntimeException("Error retrieving all ads.", e);
         }
@@ -71,8 +72,36 @@ public class MySQLAdsDao implements Ads {
                 rs.getLong("user_id"),
                 rs.getString("title"),
                 rs.getString("description"),
+                new User(
+                        rs.getLong("id"),
+                        rs.getString("firstname"),
+                        rs.getString("lastname"),
+                        rs.getString("username"),
+                        rs.getString("email"),
+                        rs.getString("password")
+                )
+        );
+    }
 
-                new User(rs.getLong("id"), rs.getString("firstname"), rs.getString("lastname"), rs.getString("username"), rs.getString("email"), rs.getString("password"))
+    private Ad extractAdsWithUserCategories(ResultSet rs) throws SQLException {
+        return new Ad(
+                rs.getLong("id"),
+                rs.getLong("user_id"),
+                rs.getString("title"),
+                rs.getString("description"),
+                rs.getLong("category_id"),
+                new User(
+                        rs.getLong("user_id"),
+                        rs.getString("firstname"),
+                        rs.getString("lastname"),
+                        rs.getString("username"),
+                        rs.getString("email"),
+                        rs.getString("password")
+                ),
+                new Category(
+                        rs.getLong("category_id"),
+                        rs.getString("classification")
+                )
         );
     }
 
@@ -92,9 +121,17 @@ public class MySQLAdsDao implements Ads {
         return ads;
     }
 
+    private List<Ad> createAdsWithUsersCategories(ResultSet rs) throws SQLException {
+        List<Ad> ads = new ArrayList<>();
+        while (rs.next()) {
+            ads.add(extractAdsWithUserCategories(rs));
+        }
+        return ads;
+    }
+
     @Override
     public List<Ad> search(String searchTerm) {
-        String query = "SELECT * FROM ads JOIN users on ads.user_id = users.id WHERE ads.title LIKE ? OR ads.description LIKE ?";
+        String query = "SELECT * FROM ads JOIN users ON ads.user_id = users.id WHERE ads.title LIKE ? OR ads.description LIKE ?";
         try {
             PreparedStatement stmt = connection.prepareStatement(query);
             stmt.setString(1, "%" + searchTerm + "%");
@@ -110,14 +147,14 @@ public class MySQLAdsDao implements Ads {
 
     @Override
     public Ad findById(Long id) {
-        String query = "SELECT * FROM ads JOIN users ON ads.user_id = users.id WHERE ads.id = ?";
+        String query = "SELECT * FROM ads JOIN users ON ads.user_id = users.id JOIN categories ON ads.category_id = categories.id WHERE ads.id = ?";
         PreparedStatement stmt;
         try {
             stmt = connection.prepareStatement(query);
             stmt.setLong(1, id);
             ResultSet rs = stmt.executeQuery();
             rs.next();
-            return extractAds(rs);
+            return extractAdsWithUserCategories(rs);
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -127,14 +164,14 @@ public class MySQLAdsDao implements Ads {
 
     @Override
     public List<Ad> findAdsByCategory(Long id) {
-        String query = "SELECT * FROM ads JOIN categories ON ads.category_id = categories.id WHERE ads.id = ?";
+        String query = "SELECT * FROM ads JOIN categories ON ads.category_id = categories.id JOIN users ON ads.user_id = users.id WHERE categories.id = ?";
         PreparedStatement stmt;
         try {
             stmt = connection.prepareStatement(query);
             stmt.setLong(1, id);
             ResultSet rs = stmt.executeQuery();
             rs.next();
-            return createAdsFromResults(rs);
+            return createAdsWithUsersCategories(rs);
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -144,13 +181,13 @@ public class MySQLAdsDao implements Ads {
 
     @Override
     public List<Ad> showUserAds(Long id) {
-        String query = "SELECT * FROM ads JOIN users ON ads.user_id = users.id WHERE users.id = ?";
+        String query = "SELECT * FROM ads JOIN categories ON ads.category_id = categories.id JOIN users ON ads.user_id = users.id WHERE users.id = ?";
         PreparedStatement stmt;
         try {
             stmt = connection.prepareStatement(query);
             stmt.setLong(1, id);
             ResultSet rs = stmt.executeQuery();
-            return createAdsWithUsersFromResults(rs);
+            return createAdsWithUsersCategories(rs);
         } catch (SQLException e) {
             throw new RuntimeException("Error finding users' ads.", e);
 
@@ -176,14 +213,14 @@ public class MySQLAdsDao implements Ads {
 
     @Override
     public void update(Ad ad) {
-        String query = "UPDATE ads SET title = ?, description = ? WHERE id = ?";
+        String query = "UPDATE ads SET title = ?, description = ?, category_id = ? WHERE id = ?";
         PreparedStatement stmt;
         try {
             stmt = connection.prepareStatement(query);
             stmt.setString(1, ad.getTitle());
             stmt.setString(2, ad.getDescription());
-//            stmt.setLong(3, ad.getCategoryId());
-            stmt.setLong(3, ad.getId());
+            stmt.setLong(3, ad.getCategoryId());
+            stmt.setLong(4, ad.getId());
             stmt.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException("Error updating the ad.", e);

@@ -14,7 +14,8 @@
 
     <div class="panel panel-default">
         <div class="panel-heading">
-            <h3 class="panel-title"><c:out value="${ad.title} - ${ad.user.username}" /></h3>
+            <h3 class="panel-title"><c:out value="${ad.title} - ${ad.user.username}" />
+                <p>Category Type:  <em><c:out value="${ad.category.classification}"/></em></p></h3>
         </div>
         <div class="panel-body">
             <img class="media-object" src="http://via.placeholder.com/100x100" alt="random-image">

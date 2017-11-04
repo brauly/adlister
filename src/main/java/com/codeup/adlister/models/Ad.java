@@ -41,15 +41,15 @@ public class Ad {
         this.user = user;
     }
 
-//    public Ad(long id, long userId, String title, String description, long categoryId, Category category, User user) {
-//        this.id = id;
-//        this.userId = userId;
-//        this.title = title;
-//        this.description = description;
-//        this.categoryId = categoryId;
-//        this.category = category;
-//        this.user = user;
-//    }
+    public Ad(long id, long userId, String title, String description, long categoryId, User user, Category category) {
+        this.id = id;
+        this.userId = userId;
+        this.title = title;
+        this.description = description;
+        this.categoryId = categoryId;
+        this.user = user;
+        this.category = category;
+    }
 
 
 
@@ -75,7 +75,7 @@ public class Ad {
         return categoryId;
     }
 
-    public void setCategoryId(long id) {
+    public void setCategoryId(long categoryId) {
         this.categoryId = categoryId;
     }
 
@@ -103,13 +103,13 @@ public class Ad {
         this.user = user;
     }
 
-//    public Category getCategory() {
-//        return category;
-//    }
-//
-//    public void setCategory(Category category) {
-//        this.category = category;
-//    }
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
 }
 
 

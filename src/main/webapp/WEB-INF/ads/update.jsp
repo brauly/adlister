@@ -30,6 +30,15 @@
                 <p class="error"> ${errors.get('description')}</p>
             </c:if>
         </div>
+        <div class="form-group">
+            <label for="category">Category</label>
+            <select class="form-control" id="category" name="category">
+                <c:forEach var="category" items="${categories}">
+                    <option ${ad.categoryId == category.id ? 'selected' : '' } value="${category.id}">"${category.classification}" </option>
+                </c:forEach>
+            </select>
+        </div>
+        <br>
         <input type="submit" class="btn btn-block btn-primary">
     </form>
 </div>

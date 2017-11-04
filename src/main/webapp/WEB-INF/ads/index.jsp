@@ -17,7 +17,8 @@
         <div class="panel panel-default ad-panel">
             <div class="panel-heading">
                 <h2 class="media-heading panel-title">
-                   <p><c:out value="${ad.title} - ${ad.user.username}"/></p>
+                    <p><c:out value="${ad.title} - ${ad.user.username}"/></p>
+                    <p>Category Type:  <em><c:out value="${ad.category.classification}"/></em></p>
                 </h2>
 
                 <c:if test="${(sessionScope.user.id == ad.userId)}">
