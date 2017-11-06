@@ -9,9 +9,8 @@
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 
-<h1 class="text-center">View your ads</h1>
+<h1 class="text-center title">View your ads <a href="/ads/create"><button class="btn btn-default"><span class="glyphicon glyphicon-plus"></span></button></a></h1>
 <div class="container">
-    <h1 class="text-center">Spooklist Advertisements</h1>
 
     <c:forEach var="ad" items="${ads}">
         <a href="/ads/show?id=${ad.id}">
@@ -52,10 +51,16 @@
                 <div class="media-left">
                     <img class="media-object" src="http://via.placeholder.com/100x100" alt="random-image">
                 </div>
-                <div class="media-body">
-                    <div class="panel-body">
-                        <p><c:out value="${ad.description}"/></p>
-                        <p> - <c:out value="${ad.user.firstname}"/></p>
+
+                <div class="media">
+                    <div class="media-left">
+                        <img class="media-object" src="http://via.placeholder.com/100x100" alt="random-image">
+                    </div>
+                    <div class="media-body">
+                        <div class="panel-body">
+                            <p><c:out value="${ad.description}"/></p>
+                            <p> - <c:out value="${ad.user.firstname}"/></p>
+                        </div>
                     </div>
                 </div>
             </div>

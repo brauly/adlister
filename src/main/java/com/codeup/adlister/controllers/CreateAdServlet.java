@@ -35,6 +35,7 @@ public class CreateAdServlet extends HttpServlet {
         if (request.getSession().getAttribute("user") == null) {
             response.sendRedirect("/login");
             return;
+
         }
 
         List<Category> categories = DaoFactory.getCategoriesDao().all();
